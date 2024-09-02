@@ -1,0 +1,31 @@
+#nav{
+  background-color: rgb(255, 77, 77);
+
+}
+
+#nav .navbar-nav li>a {
+  color: white;
+  padding: 0;
+}
+
+a:hover {
+  color: white;
+}
+
+#mainLink{
+  color: white;
+}
+
+#mainLink:hover{
+  transform: scale(1.05);
+  transition: .5s all ease;
+}
+
+li > a:hover {
+  color: white;
+  border-bottom: 1px solid white;
+}
+
+.breadCrumbActive {
+  border-bottom: 1px solid white;
+}

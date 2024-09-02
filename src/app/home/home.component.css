@@ -1,0 +1,41 @@
+#back-image {
+  background-image: url('../../assets/img/fondoHome.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#reserveBtn {
+  letter-spacing: 2px;
+  font-weight: bold;
+  position: absolute;
+  top: 0;
+  opacity: 0;
+  transition: top 1.5s ease-in-out, opacity 1s ease-in-out;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: transparent;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 1px solid white;
+}
+
+#reserveBtn.animate {
+  top: 50%;
+  opacity: 1;
+  transform: translateY(-50%);
+}
+
+#reserveBtn:hover {
+  background-color: white;
+  color: black;
+}

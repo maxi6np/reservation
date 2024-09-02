@@ -1,0 +1,36 @@
+<app-nav></app-nav>
+
+
+<div class="d-flex flex-column align-items-center p-4">
+  <h5>Historiel de réserves</h5>
+  <p>Voici l'historiel de vos réserves</p>
+</div>
+
+<div>
+  <div *ngIf="reserves.length !== 0; else noReserves" class="d-flex flex-wrap align-items-center p-4">
+
+    <div *ngFor="let reserve of reserves; index as i" class="reserva">
+      <div class="card m-2">
+        <div class="card-body">
+          <h5 class="card-title fs-5">Réservation {{reserve.id_reserva}}</h5>
+          <p class="card-text">Nom: {{reserve.cliente.nombre}}</p>
+          <p class="card-text">Email: {{reserve.cliente.email}}</p>
+          <p class="card-text">Date: {{reserve.fecha_reserva}}</p>
+          <p class="card-text">Hour: {{reserve.hora_reserva}}h</p>
+          <p class="card-text">Personas: {{reserve.cantidad_personas}}</p>
+          <p *ngIf="reserve.comment" class="card-text">Commentaire: {{reserve.comment}}</p>
+        </div>
+        <div>
+          <button (click)="editReserve(reserve)" class="btn btn-warning">Edit</button>
+          <button (click)="deleteReserve(reserve)" class="btn btn-danger">Supprimer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ng-template #noReserves>
+    <div class="d-flex flex-column align-items-center p-4">
+      <p>Vous n'avez pas encore fait de réserves</p>
+    </div>
+  </ng-template>
+
+</div>

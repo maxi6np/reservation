@@ -1,0 +1,37 @@
+<div id="carrousel-container">
+  
+  <div class="d-flex justify-content-center align-items-center gap-3" id="header">
+    <div class="img-header">
+      <img src="img/lineaOndulada.png" alt="Linea ondulada">
+    </div>
+    <h4 class="text-center fst-italic">Sé feliz y dejate guiar por el olfato</h4>
+    <div class="img-header">
+      <img src="img/lineaOndulada.png" alt="Linea ondulada">
+    </div>
+  </div>
+
+  <div id="carrousel">
+    <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="3000">
+          <img [ngSrc]="images[0].src" class="d-block w-100" [alt]="images[0].title" width="800" height="600" priority>
+        </div>
+        <div class="carousel-item" data-bs-interval="3000">
+          <img [ngSrc]="images[1].src" class="d-block w-100" [alt]="images[1].title" width="800" height="600" priority>
+        </div>
+        <div class="carousel-item" data-bs-interval="3000">
+          <img [ngSrc]="images[2].src" class="d-block w-100" [alt]="images[2].title" width="800" height="600" priority>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+
+</div>

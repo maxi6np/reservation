@@ -1,0 +1,86 @@
+<app-nav></app-nav>
+
+<div class="d-flex flex-column align-items-center p-4">
+  <h5>Reserve une table</h5>
+  <p>Remplissez le formulaire ci-dessous</p>
+</div>
+
+<div id="formContainer" class="container">
+  <form class="row" [formGroup]="bookForm" action="" (ngSubmit)="onSubmit()">
+
+    <mat-form-field class="example-full-width col-6">
+      <mat-label>Nom</mat-label>
+      <input type="text" matInput formControlName="nombre" placeholder="Pedro" [errorStateMatcher]="matcher">
+      <mat-error *ngIf="bookForm.get('nombre')?.hasError('required')">
+        Nom is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <!-- NOM -->
+
+    <mat-form-field class="example-full-width col-6">
+      <mat-label>Email</mat-label>
+      <input type="email" matInput formControlName="email" placeholder="Ex. pat@example.com"
+        [errorStateMatcher]="matcher">
+      <mat-error *ngIf="bookForm.get('email')?.hasError('email') && !bookForm.get('email')?.hasError('required')">
+        Please enter a <strong>valid</strong> email address
+      </mat-error>
+      <mat-error *ngIf="bookForm.get('email')?.hasError('required')">
+        Email is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <!-- EMAIL -->
+
+    <mat-form-field class="example-full-width col-xl-6">
+      <mat-label>People</mat-label>
+      <input type="number" matInput formControlName="cantidad_personas" placeholder="Enter the number of people" [errorStateMatcher]="matcher">
+      <mat-error *ngIf="bookForm.get('cantidad_personas')?.hasError('min')">
+        Must be a number <strong>higher than 0</strong>
+      </mat-error>
+    </mat-form-field>
+    <!-- PHONE -->
+
+
+    <mat-form-field class="example-full-width col-xl-6">
+      <mat-label>Choisissez une date</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="fecha_reserva" [matDatepickerFilter]="dateFilter">
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker touchUi #picker></mat-datepicker>
+      <mat-error *ngIf="bookForm.get('fecha_reserva')?.hasError('required')">
+        Date is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <!-- DATE -->
+
+
+    <mat-form-field class="example-full-width col-xl-6">
+      <mat-label>Heure de réservation</mat-label>
+      <mat-select formControlName="hora_reserva">
+        @for (hour of hours; track hour) {
+        <mat-option [value]="hour">{{hour}}</mat-option>
+        }
+      </mat-select>
+      <mat-error *ngIf="bookForm.get('hora_reserva')?.hasError('required')">
+        Heure is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <!-- DATE -->
+
+    <mat-form-field class="example-full-width col-12">
+      <mat-label>Introduit un commentaire sur la reserve</mat-label>
+      <textarea type="text" matInput formControlName="comment" placeholder="Alergías, intolerancias..."></textarea>
+    </mat-form-field>
+    <!-- COMMENTAIRE -->
+
+    <div class="col-12 d-flex justify-content-center">
+      <div class="col-5">
+        <button class="btn btn-success d-flex align-items-center justify-content-center gap-2 w-100" [disabled]="bookForm.invalid">
+          {{(this.editing) ? 'Edit reserve': 'Envoyer'}}
+          <i class="fa-regular fa-circle-check"></i>
+        </button>
+      </div>
+    </div>
+
+  </form>
+
+</div>

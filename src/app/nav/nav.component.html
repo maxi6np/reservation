@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand-lg" id="nav">
+  <div class="container-fluid p-1 px-4">
+    <a (click)="setBreadCrumb('title')" id="mainLink" class="navbar-brand fs-3 display-2 fw-bold"
+      routerLink="/">Gauffrouse</a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-4">
+        <li class="nav-item">
+          <a (click)="setBreadCrumb('menu')" class="nav-link" routerLink="/menu"
+            [ngClass]="{'breadCrumbActive' : isActive('menu')}">Menu</a>
+        </li>
+        <li class="nav-item">
+          <a (click)="setBreadCrumb('nous')" class="nav-link" routerLink="/aboutUs"
+            [ngClass]="{'breadCrumbActive' : isActive('nous')}">À propos de nous</a>
+        </li>
+        <li class="nav-item">
+          <a (click)="setBreadCrumb('historiel')" class="nav-link" routerLink="/reserves"
+            [ngClass]="{'breadCrumbActive' : isActive('historiel')}"
+            [matBadge]="numberOfReserves" matBadgeOverlap="false">Historiel de réserves</a>
+        </li>
+      </ul>
+      <button class="btn btn-outline-dark" type="submit" routerLink="/book">Réserver</button>
+    </div>
+  </div>
+</nav>

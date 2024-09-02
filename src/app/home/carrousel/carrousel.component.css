@@ -1,0 +1,28 @@
+#carrousel-container{
+  background-color: rgb(226, 205, 176);
+}
+
+#carrousel{
+  margin: auto;
+  width: 90%;
+  padding-bottom: 3rem;
+}
+
+.carrousel-item{
+  height: 500px;
+  width: 100%;
+}
+
+.img-header{
+  display: flex;
+  align-items: center;
+}
+
+.img-header img{
+  width: 300px;
+  height: auto ;
+}
+
+#header{
+  padding: 5rem 0 5rem 0;
+}
